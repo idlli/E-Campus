@@ -6,6 +6,8 @@
 - how to manage forgot password requested ? (auto mail, manually mail...)
 - is the website have a public home page for annonces and banners ... ?
 - is there any category of notifications require a response ?
+- what tasks can super-admin and limited-admin do ?
+- who has access to create categories and types ?
 ```
 ### diagram
 ```mermaid
@@ -14,12 +16,17 @@ flowchart LR;
         user{{user}}---login;
         user---forpass[forgot password];
         admin{{admin}}---login;
-        admin---forpass[forgot password];
+        admin---forpass;
+        ladmin{{limited admin}}---login;
+        ladmin---forpass;
+        sadmin{{super admin}}---login;
         forpass-->|include|login;
         reminder-.->|extend|login;
         login-->|include|captcha;
-        login-->|include|auth[(authentification)];
+        login---->|include|auth[(authentification)];
         login----mp[main page];
+        ladmin---signup;
+        admin---signup;
     %% main page side
         mp---profile;
         mp---settings;
@@ -34,6 +41,8 @@ flowchart LR;
         groups-->|include|mp;
         admin-----users;
         users-->|include|mp;
+        sadmin-----admins;
+        admins-->|include|mp;
         admin-----uploads;
         uploads-->|include|mp;
     %% settings side
@@ -60,67 +69,71 @@ flowchart LR;
         text-.->|extend|nc;
         nud[upload documents]-.->|extend|nc;
         notifications---nrr[recherche];
-        ns[select notification]-.->|extend|nrr;
         notifications---nr[read];
         nr---nddd[download documents];
         nr---nmau[mark as unread];
         notifications---nu[update];
         notifications---nd[delete];
-        nr & nu & nd-->|include|ns;
+        nr & nu & nd-->|include|ns[select notification];
         admin-----categories;
         categories-->|include|notifications;
         %% categories side
             categories---cc[create];
             categories---crr[recherche];
-            categories---cs[select categorie];
             categories---cr[read];
             categories---cu[update];
             categories---cd[delete];
-            cr & cu & cd-->|include|cs;
+            cr & cu & cd-->|include|nsc;
     %% requests side
-        user-----rc[create];
-        rc---dst[select type];
-        user-----rd[delete];
+        user & admin & ladmin & sadmin-----rc[create];
+        rc---rst[select type];
+        user & admin & ladmin & sadmin-----rd[delete];
         rc & rd-->|include|requests;
         requests---rrr[recherche];
         requests---rr[read];
         admin-----ru[update];
+        sadmin-----ru;
+        admin-----rre[redirect request];
         ru---rcs[change state];
-        ru-->|include|requests;
+        ru & rre-->|include|requests;
         admin-----types;
         types-->|include|requests;
+        rr & ru & rd & rre-->|include|rs[select request];
+        signup-->|include|rc;
         %% types side
             types---tc[create];
             types---trr[recherche];
-            types---ts[select type];
             types---tr[read];
             types---tu[update];
             types---td[delete];
-            tr & tu & td-->|include|ts;
+            tr & tu & td-->|include|rst;
     %% filières side
         filières---fc[create];
         filières---frr[recherche];
-        filières---fs[select filière];
         filières---fr[read];
         filières---fu[update];
         filières---fd[delete];
-        fr & fu & fd-->|include|fs;
+        fr & fu & fd-->|include|fs[select filière];
     %% groups side
         groups---gc[create];
         groups---grr[recherche];
-        groups---gs[select group];
         groups---gr[read];
         groups---gu[update];
         groups---gd[delete];
-        gr & gu & gd-->|include|gs;
+        gr & gu & gd-->|include|gs[select group];
     %% users side
         users---uc[create];
         users---urr[recherche];
-        users---us[select user];
         users---ur[read];
         users---uu[update];
         users---ud[delete];
-        ur & uu & ud-->|include|us;
+        ur & uu & ud-->|include|us[select user];
+    %% admins side
+        admins---arr[recherche];
+        admins---ar[read];
+        admins---au[update];
+        admins---ad[delete];
+        ar & au & ad-->|include|as[select admin];
     %% uploads side
         uploads---uprr[recherche];
         uploads---ups[select rows];
