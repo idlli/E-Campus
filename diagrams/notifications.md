@@ -7,4 +7,5 @@ graph LR
     text & nud[upload documents] -.-> |extend| nc
     nr --- nddd[download documents] & nmau[mark as unread]
     nr & nu & nd --> |include| ns[select notification]
+    admin --- categories
 ```
