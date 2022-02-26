@@ -15,4 +15,5 @@ graph LR
     %% links
     click f-password "https://github.com/idlli/laravel-project/blob/main/diagrams/reset-password.md" _blank
     click sign-up "https://github.com/idlli/laravel-project/blob/main/diagrams/sign-up.md" _blank
+    click mp "https://github.com/idlli/laravel-project/blob/main/diagrams/main-page.md" _blank
 ```
