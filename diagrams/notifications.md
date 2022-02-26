@@ -8,4 +8,7 @@ graph LR
     nr --- nddd[download documents] & nmau[mark as unread]
     nr & nu & nd --> |include| ns[select notification]
     admin --- categories
+    
+    %% links
+    click categories "https://github.com/idlli/laravel-project/blob/main/diagrams/categories.md" _blank
 ```
