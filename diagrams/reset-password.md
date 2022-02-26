@@ -1,7 +1,7 @@
 ## use-case
 ```mermaid
 graph LR
-    user --- n-password[new password]
+    user{{user}} --- n-password[new password]
     c-password[confirm password] --> |include| n-password
     n-password --> |include| answer[answer of selected question if exists]
     answer --> |include| email
