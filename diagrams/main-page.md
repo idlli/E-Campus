@@ -7,7 +7,7 @@ graph LR
     s-admin --- admins
     
     %% links
-    click profile "/profile.md" _blank
+    click profile "./profile.md" _blank
     click settings "/settings.md" _blank
     click notifications "/notifications.md" _blank
     click requests "/requests.md" _blank
