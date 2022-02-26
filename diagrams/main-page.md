@@ -7,7 +7,7 @@ graph LR
     s-admin --- admins
     
     %% links
-    click settings "/settings.md" _blank
+    click settings "https://github.com/idlli/laravel-project/blob/main/diagrams/settings.md" _blank
     click notifications "https://github.com/idlli/laravel-project/blob/main/diagrams/notifications.md" _blank
     click requests "https://github.com/idlli/laravel-project/blob/main/diagrams/requests.md" _blank
     click filières "https://github.com/idlli/laravel-project/blob/main/diagrams/filières.md" _blank
