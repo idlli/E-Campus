@@ -7,4 +7,7 @@ graph LR
     ru --- rcs[change state]
     admin --- rre[redirect request] & types
     rr & ru & rd & rre --> |include| rs[select request]
+    
+    %% links
+    click types "https://github.com/idlli/laravel-project/blob/main/diagrams/types.md" _blank
 ```
