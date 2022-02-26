@@ -3,7 +3,7 @@
 graph LR
     user{{user}} --- n-password[new password]
     n-password --> |include| c-password[confirm password]
-    n-password --> |include| answer[answer of selected question if exists]
+    n-password --> |include| answer[answer of security question if exists]
     answer --> |include| email
     answer --> |include| cin[cin or code-massar]
     answer --> |include| f-name[first-name]
