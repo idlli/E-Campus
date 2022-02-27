@@ -26,11 +26,11 @@ sequenceDiagram
     user ->> site : select sign-in mode
     alt sign-in as user (default)
         alt click on login
-            user ->>+ site : login[onclick()]
+            user ->>+ site : onclick(login)
             site ->> site : form validation
             note right of site : email and password
             alt form valid
-                site ->>+ server : user[find()]
+                site ->>+ server : find(user)
                 server ->> server : find user
                 server -->>- site : respond
                 alt user exists
@@ -41,23 +41,20 @@ sequenceDiagram
                         site ->> site : cookie(login_string)
                     end
                     site ->> site : redirect(main-page.php)
-                else user not exists
-                    site -->> user : message()
                 end
-            else form not valid
-                site -->>- user : message()
             end
+            site -->>- user : message()
         else click on forgot password
-            user ->> site : forgot-password[onclick()]
+            user ->> site : onclick(forgot_password)
             site ->> site : redirect(reset-password.php)
         end
     else sign-in as admin
         alt click on login
-            user ->>+ site : login[onclick()]
+            user ->>+ site : onclick(login)
             site ->> site : form validation
             note right of site : email and password and year
             alt form valid
-                site ->>+ server : user[find()]
+                site ->>+ server : find(user)
                 server ->> server : find user
                 server -->>- site : respond
                 alt user exists
@@ -68,17 +65,14 @@ sequenceDiagram
                         site ->> site : cookie(login_string, year)
                     end
                     site ->> site : redirect(main-page.php)
-                else user not exists
-                    site -->> user : message()
                 end
-            else form not valid
-                site -->>- user : message()
             end
+            site -->>- user : message()
         else click on forgot password
-            user ->> site : forgot-password[onclick()]
+            user ->> site : onclick(forgot_password)
             site ->> site : redirect(reset-password.php)
         else click on sign up
-            user ->> site : sign-up[onclick()]
+            user ->> site : onclick(sign_up)
             site ->> site : redirect(sign-up.php)
         end
     end
