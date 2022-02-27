@@ -16,17 +16,17 @@ sequenceDiagram
     actor user
     participant site as web-site
     participant server as web-server
-    user ->>+ site : step-one[onclick()]
+    user ->>+ site : onclick(step_one)
     site ->> site : form validation
     note right of site : email and cin and name and date of birth
     alt form valid
-        site ->>+ server : user[find()]
+        site ->>+ server : find(user)
         server ->> server : find user
         server -->>- site : respond
         alt user exists
             alt security question exists
                 site ->> user : question and answer form
-                user ->>+ site : step-two[onclick()]
+                user ->>+ site : onclick(step_two)
                 site ->> site : form validation
                 note right of site : answer
                 alt form valid
@@ -35,41 +35,31 @@ sequenceDiagram
                     server -->>- site : respond
                     alt answer valid
                         site ->> user : reset password form
-                        user ->>+ site : step-three[onclick()]
+                        user ->>+ site : onclick(step_three)
                         site ->> site : form validation
                         note right of site : new password and confirm password
                         alt form valid
                             site ->>+ server : reset_password()
                             server ->> server : reset password
                             server -->>- site : respond
-                            site -->> user : message()
-                        else form not valid
-                            site -->>- user : message()
                         end
-                    else answer not valid
-                        site -->> user : message()
-                    end
-                else form not valid
-                    site -->>- user : message()
+                        site -->>- user : message()
+                    end 
                 end
+                site -->>- user : message()
             else security question not exists
                 site ->> user : reset password form
-                user ->>+ site : step-three[onclick()]
+                user ->>+ site : onclick(step_three)
                 site ->> site : form validation
                 note right of site : new password and confirm password
                 alt form valid
                     site ->>+ server : reset_password()
                     server ->> server : reset password
                     server -->>- site : respond
-                    site -->> user : message()
-                else form not valid
-                    site -->>- user : message()
                 end
+                site -->>- user : message()
             end
-        else user not exists
-            site -->> user : message()
-        end
-    else form not valid
-        site -->>- user : message()
+        end 
     end
+    site -->>- user : message()
 ```
