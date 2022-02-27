@@ -19,3 +19,36 @@ graph LR
     u-name[user-name] -.-> |extend| s-request
     p-number[phone number] -.-> |extend| s-request
 ```
+## sequence
+```mermaid
+sequenceDiagram
+    actor user
+    participant site as web-site
+    participant server as web-server
+    user ->>+ site : onclick(step_one)
+    site ->> site : form validation
+    note right of site : name and email and password
+    alt form valid
+        site ->>+ server : find(email)
+        server ->> server : find email
+        server -->>- site : respond
+        alt email not exists
+            site ->> user : step two form
+            user ->>+ site : onclick(step_two)
+            site ->> site : form validation
+            note right of site : cin and user name and phone number and account type and date of birth and gender
+            alt form valid
+                site ->>+ server : find(cin, ?user_name)
+                server ->> server : find cin and user name
+                server -->>- site : respond
+                alt if not exists
+                    site ->>+ server : send_request()
+                    server ->> server : send request to super admin
+                    server -->>- site : respond
+                end
+            end
+            site -->>- user : message()
+        end
+    end
+    site -->>- user : message()
+```
