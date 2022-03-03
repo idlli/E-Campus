@@ -25,7 +25,7 @@ sequenceDiagram
                 server ->>- site : respond
             end
         end
-        site ->> site : redirect(sign-in-?.php)
+        site ->> site : redirect(sign-in.php)
     end
     site -->>- user : message()
 ```
