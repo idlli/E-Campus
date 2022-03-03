@@ -12,10 +12,11 @@ graph LR
 sequenceDiagram
     actor user
     participant site as web-site
-    user ->> site : onclick()
-    alt sign-in as user
+    alt click on sign-in as user
+        user ->> site : onclick(sign_in_as_user)
         site ->> site : redirect(sign_in_as_user.php)
-    else sign in as admin
+    else click on sign in as admin
+        user ->> site : onclick(sign_in_as_admin)
         site ->> site : redirect(sign_in_as_admin.php)
     end
 ```
