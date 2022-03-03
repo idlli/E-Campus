@@ -6,7 +6,7 @@ graph LR
     reminder -.-> |extend| sign-in
     
     %% links
-    click f-password "https://github.com/idlli/laravel-project/blob/main/diagrams/login/reset-password.md" _blank
+    click f-password "https://github.com/idlli/laravel-project/blob/main/diagrams/login/forgot-password.md" _blank
     click sign-up "https://github.com/idlli/laravel-project/blob/main/diagrams/login/sign-up.md" _blank
 ```
 ## sequence
