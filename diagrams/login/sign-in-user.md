@@ -1,11 +1,9 @@
 ## use-case
 ```mermaid
 graph LR
-    user{{user}} --- sign-in
-    email[email or user-name] --> |include| sign-in
-    password --> |include| sign-in
+    user{{user}} --- sign-in & f-password[forgot password]
+    email[email or user-name] & password --> |include| sign-in
     reminder -.-> |extend| sign-in
-    user --- f-password[forgot password]
     
     %% links
     click f-password "https://github.com/idlli/laravel-project/blob/main/diagrams/login/reset-password.md" _blank
