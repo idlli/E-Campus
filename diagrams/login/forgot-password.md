@@ -2,7 +2,7 @@
 ```mermaid
 graph LR
     user{{user}} --- find
-    email --> |include| find
+    find --> |include| email
     find --- r-password[reset password]
     
     %% links
@@ -31,9 +31,8 @@ sequenceDiagram
             mail ->> mail : send message
             mail -->- site : respond
             site ->> site : redirect(reset-password.php)
-        else
-            site ->> site : redirect(sign-in-?.php)
         end
+        site ->> site : redirect(sign-in-?.php)
     end
     site -->>- user : message()
 ```
