@@ -2,7 +2,7 @@
 ```mermaid
 graph LR
     user{{user}} --- sign-in & f-password[forgot password]
-    email[email or user-name] & password --> |include| sign-in
+    sign-in --> |include| email[email or user-name] & password
     reminder -.-> |extend| sign-in
     
     %% links
