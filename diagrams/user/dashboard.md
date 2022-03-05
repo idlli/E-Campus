@@ -1,7 +1,7 @@
 ## use-case
 ```mermaid
 graph LR
-    user{{user}} --- documents & profile & settings & notifications & requests & logout
+    user{{user}} ---  profile & settings & notifications & documents & requests & logout
     
     %% links
     
