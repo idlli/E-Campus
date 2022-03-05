@@ -1,7 +1,7 @@
 ## use-case
 ```mermaid
 graph LR
-    admin{{admin}} --- profile & settings & notifications & requests & logout & secteurs & niveaux & filières & groups & users & uploads
+    admin{{admin}} --- profile & settings & notifications & documents & requests & logout & secteurs & filières & groups & users & uploads
     
     %% links
     
