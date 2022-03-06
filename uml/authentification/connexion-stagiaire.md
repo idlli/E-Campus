@@ -1,7 +1,7 @@
 ## cas d'utilisation
 ```mermaid
 graph LR
-    utilisateur{{utilisateur}} --- connexion[se connecter] & passe-o[mot de passe oublié]
+    stagiaire{{stagiaire}} --- connexion[se connecter] & passe-o[mot de passe oublié]
     connexion --> |include| e-mail[e-mail ou nom d'utilisateur] & passe[mot de passe]
     restez[restez connecté] -.-> |extend| connexion
     
