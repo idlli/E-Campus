@@ -11,16 +11,16 @@ sequenceDiagram
     par profil
         administrateur_l ->> site : onclick(profil)
         site ->> site : redirection(profil.php)
-    and settings
+    and paramètres
         administrateur_l ->> site : onclick(paramètres)
         site ->> site : redirection(paramètres.php)
     and notifications
         administrateur_l ->> site : onclick(notifications)
         site ->> site : redirection(notifications.php)
-    and requests
+    and demandes
         administrateur_l ->> site : onclick(demandes)
         site ->> site : redirection(demandes.php)
-    and logout
+    and se déconnecter
         administrateur_l ->> site : onclick(se_déconnecter)
         site ->> site : supprimer_cookie(chaîne_de_connexion)
         site ->> site : redirection(connexion.php)
