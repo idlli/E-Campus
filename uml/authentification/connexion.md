@@ -14,9 +14,9 @@ sequenceDiagram
     participant site as site web
     alt stagiaire
         utilisateur ->> site : onclick(connexion_stagiaire)
-        site ->> site : redirect(connexion_stagiaire.php)
+        site ->> site : redirect(connexion-stagiaire.php)
     else administrateur
         utilisateur ->> site : onclick(connexion_administrateur)
-        site ->> site : redirect(connexion_administrateur.php)
+        site ->> site : redirect(connexion-administrateur.php)
     end
 ```
