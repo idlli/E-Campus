@@ -8,10 +8,10 @@ graph LR
 sequenceDiagram
     actor administrateur
     participant site as site web
-    par profile
+    par profil
         administrateur ->> site : onclick(profil)
         site ->> site : redirect(profil.php)
-    and settings
+    and paramètres
         administrateur ->> site : onclick(paramètres)
         site ->> site : redirection(paramètres.php)
     and documents
@@ -20,7 +20,7 @@ sequenceDiagram
     and notifications
         administrateur ->> site : onclick(notifications)
         site ->> site : redirection(notifications.php)
-    and requests
+    and demandes
         administrateur ->> site : onclick(demandes)
         site ->> site : redirection(demandes.php)
     and secteurs
@@ -32,16 +32,16 @@ sequenceDiagram
     and filières
         administrateur ->> site : onclick(filières)
         site ->> site : redirection(filières.php)
-    and groups
+    and groupes
         administrateur ->> site : onclick(groupes)
         site ->> site : redirection(groupes.php)
-    and users
+    and stagiaires
         administrateur ->> site : onclick(stagiaires)
         site ->> site : redirection(stagiaires.php)
-    and uploads
+    and importer
         administrateur ->> site : onclick(importer)
         site ->> site : redirection(importer.php)
-    and logout
+    and se déconnecter
         administrateur ->> site : onclick(se_déconnecter)
         site ->> site : supprimer_cookie(chaîne_de_connexion)
         site ->> site : redirection(connexion.php)
