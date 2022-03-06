@@ -1,9 +1,9 @@
-## use-case
+## cas d'utilisation
 ```mermaid
 graph LR
     administrateur{{administrateur}} --- profil & paramètres & notifications & documents & demandes & secteurs & niveaux & filières & groupes & stagiaires & importer & déconnecter[se déconnecter]
 ```
-## sequence
+## séquence
 ```mermaid
 sequenceDiagram
     actor administrateur
