@@ -5,7 +5,7 @@ graph LR
     connexion --> |include| e-mail[e-mail ou nom d'utilisateur] & passe[mot de passe]
     restez[restez connecté] -.-> |extend| connexion
     
-    %% links
+    %% liens
     click passe-o "https://github.com/idlli/projet-de-stage/blob/main/uml/authentification/mot-de-passe-oublié.md" _blank
 ```
 ## séquence
